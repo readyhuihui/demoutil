@@ -1,5 +1,7 @@
 package com.example.demo.util;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -45,5 +47,13 @@ public class JsonUtil {
             listMapData.add(mapData);
         }
         return listMapData;
+    }
+
+    public static void main(String[] args) {
+        String strValuesJson="[[93060,92027,104834,123118,110678,120438,66816]]";
+//        List<? extends ArrayList> lists = JSONObject.parseArray(strValuesJson,new ArrayList<String[]>().getClass());
+        List<List> lists = JSONObject.parseArray(strValuesJson,List.class);
+        System.out.println(lists.get(0).get(0));
+        System.out.println(lists.get(0).get(1));
     }
 }
